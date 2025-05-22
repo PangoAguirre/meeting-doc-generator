@@ -1,0 +1,14 @@
+# Stage 1: build con Node/Vite
+FROM node:16-alpine AS builder
+WORKDIR /app
+COPY frontend/package*.json ./
+RUN npm install
+COPY frontend /app
+RUN npm run build      # Vite genera carpeta dist/
+
+# Stage 2: servir con Nginx
+FROM nginx:stable-alpine
+COPY --from=builder /app/dist /usr/share/nginx/html
+# (Opcional) copiar configuración custom de nginx.conf
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
