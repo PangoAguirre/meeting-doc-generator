@@ -5,9 +5,9 @@ description = ""
 authors = ["Pango <bcamilo.aguirre@udea.edu.co>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
-fastapi = "^0.115.12"
-uvicorn = "^0.34.2"
+python = "3.10"
+fastapi = "0.115.12"
+uvicorn = "0.34.2"
 azure-storage-blob = "^12.25.1"
 azure-cognitiveservices-speech = "^1.44.0"
 pydantic = "^2.11.4"
